@@ -1,0 +1,54 @@
+/ Navigation
+%nav.navbar{:role => "navigation"}
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          = image_tag '/images/cj_logo_pb.png', size: '210x80'
+      %span.pull-right{style: 'padding-top: 25px !important'}
+
+    / /.navbar-collapse
+  / /.container
+%nav.navbar-sub
+  .container
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+        %li
+          %a{:href => "#"} 
+            %b Página principal
+        %li
+          %a{:href => "#{portal.articles_path}"}
+            %b Artigos
+        %li
+          %a{:href => "#"}
+            %b Colunistas
+        %li
+          %a{:href => "#{}"}
+            %b Jurisprudência
+        %li
+          %a{:href => "#{}"}
+            %b Boletim
+        %li
+          %a{:href => "#{}"}
+            %b Banco de Questões
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            %b Mais
+            %span.caret
+          %ul.dropdown-menu

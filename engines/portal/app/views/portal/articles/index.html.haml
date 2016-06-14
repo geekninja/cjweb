@@ -1,0 +1,21 @@
+.row
+  .col-md-12
+    %b Total de artigos migrados:
+    #{@articles.count}
+%hr/
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr 
+          %th Titulo
+          %th Autor
+          %th Data
+      %tbody 
+        - @articles.each do |article|
+          %tr
+            %td
+              %b= link_to article.title, article_path(article)
+            %td= article.author
+            %td= article.date
+            

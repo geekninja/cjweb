@@ -1,0 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.navbar{
+  margin-bottom: 0px!important;
+}
+footer {
+    margin: 50px 0;
+}
+.navbar-sub{
+  background-color: #2E6DA4;
+}
+.navbar-sub a{
+  color:#fff;
+}
+.navbar-sub a:hover{
+  color:#0d5597;
+}
+.article-home{
+  padding-bottom: 20px;
+  min-height: 190px!important;
+}
+.paddingbottom{
+  padding-bottom: 10px;
+}
+.circular{
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+.content-title {}
+.content-author {}
+.content-text {
+  font-size: 20px;
+  font-weight: normal;
+  text-align: justify;
+  margin-bottom: 1.4375rem;
+  line-height: 1.5;
+  letter-spacing: 0.01rem;
+  text-rendering: optimizeLegibility;
+  font-family: Georgia, serif !important;
+}
+.articles_rows{
+  margin-top:25px;
+}
+
+.centralized {
+  margin: 0 auto !important;
+}
