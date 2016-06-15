@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614133827) do
+ActiveRecord::Schema.define(version: 20160615172511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "article_categorries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "status",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "author_id"
+    t.integer  "old_id"
+    t.string   "old_link"
+    t.boolean  "publish",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "articles", ["author_id"], name: "index_articles_on_author_id", using: :btree
+
+  create_table "authors", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "migrate_articles", force: :cascade do |t|
     t.string   "date"
@@ -24,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160614133827) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "author_id"
   end
 
 end

@@ -1,5 +1,8 @@
 Portal::Engine.routes.draw do
 
-  resources :articles, path: 'artigos'
+  root 'dashboard#index'
+  
+  resources :articles,  path: 'artigos'
+  resources :authors,   path: 'autores'
 
 end

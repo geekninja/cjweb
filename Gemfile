@@ -10,6 +10,8 @@ gem 'nokogiri'
 gem 'pg'
 
 gem 'haml-rails'
+gem 'will_paginate-bootstrap'
+gem 'has_scope'
 
 group :development, :test do
   gem 'byebug'

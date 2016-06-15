@@ -1,0 +1,21 @@
+.row
+  .col-md-12
+    %b Total de artigos migrados:
+    #{@authors.count}
+%hr/
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr 
+          %th Nome do autor
+          %th Qtd. de publicações
+      %tbody 
+        - @authors.order(:name).each do |author|
+          %tr
+            %td
+              %b= link_to author.name, articles_path(by_author: author.id)
+            %td= author.articles.count
+.row
+  .col-md-12
+    = will_paginate @authors, renderer: BootstrapPagination::Rails
