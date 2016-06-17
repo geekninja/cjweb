@@ -1,0 +1,40 @@
+.row
+  .col-md-12
+    %h1 
+      %B Listagem de artigos
+%hr/
+
+.row
+  = simple_form_for url_for, method: :get do|f|
+    .col-md-4
+      = f.input :by_title, label: "Título", input_html: { name: 'by_title', value: params[:by_title]}
+    .col-md-4
+      = f.input :by_author, label: "Autor", as: :select, collection: ::Author.all.order(:name), include_blank: 'todos...', selected: params[:by_author], input_html: { name: 'by_author'}
+    .col-md-2
+      = f.submit "Pesquisar", name: nil, class: 'btn btn-primary filter-button btn-sm'
+    .col-md-2
+      = link_to "+ Adicionar artigo", new_article_path, class: 'pull-right btn btn-success btn-sm filter-button'
+.row
+  .col-md-12
+    %table.table.table-bordered.table-striped.table-hover
+      %thead
+        %tr
+          %th Título
+          %th Autor
+          %th Data
+          %th Ações
+      %tbody
+        - @articles.each do |article|
+          %tr
+            %td
+              %b= article.title
+            %td= article.author.name if article.author.present?
+            %td= article.created_at.strftime("%d/%m/%Y") if article.created_at.present?
+            %td.col-md-2
+              = link_to "", article_path(article), class: 'btn btn-success btn-xs glyphicon glyphicon-share'
+              = link_to "", edit_article_path(article), class: 'btn btn-primary btn-xs glyphicon glyphicon-pencil'
+              = link_to "", article_path(article), method: :delete, class: 'btn btn-danger btn-xs glyphicon glyphicon-remove', data: { confirm: 'Tem certeza que deseja excluir?'}
+
+.row
+  .col-md-12{style: 'text-align: center'}
+    = will_paginate @articles, renderer: BootstrapPagination::Rails  

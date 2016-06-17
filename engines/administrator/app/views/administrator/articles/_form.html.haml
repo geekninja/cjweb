@@ -1,0 +1,24 @@
+= simple_form_for @article do |f|
+  .row
+    .col-md-8
+      = f.input :title
+    .col-md-4
+      = f.association :author, include_blank: false
+  .row
+    .col-md-12
+      = f.input :content, input_html: { style: 'min-height: 500px', class: 'tinymce'}
+  .row
+    .col-md-3
+      = f.input :publish, as: :select, include_blank: false
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar para listagem", articles_path, class: 'btn btn-default' 
+
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/

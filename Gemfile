@@ -12,6 +12,12 @@ gem 'pg'
 gem 'haml-rails'
 gem 'will_paginate-bootstrap'
 gem 'has_scope'
+gem 'simple_form'
+
+gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
+gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
+
 
 group :development, :test do
   gem 'byebug'
