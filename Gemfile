@@ -17,8 +17,8 @@ gem 'simple_form'
 gem 'tinymce-rails'
 gem 'tinymce-rails-langs'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
-
-
+gem 'file_validators'
+gem 'carrierwave'
 group :development, :test do
   gem 'byebug'
 end
@@ -28,7 +28,7 @@ group :development do
 end
 
 
-path 'engines' do 
+path 'engines' do
   gem 'administrator'
   gem 'portal'
 end

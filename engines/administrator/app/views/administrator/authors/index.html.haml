@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    %h1
+      %B Listagem de Autores
+%hr/
+
+.row
+  = simple_form_for url_for, method: :get do|f|
+    .col-md-4
+      = f.input :by_author, label: "Autor", include_blank: 'todos...', selected: params[:by_author], input_html: { name: 'by_author'}
+    .col-md-2
+      = f.submit "Pesquisar", name: nil, class: 'btn btn-primary filter-button btn-sm'
+    .col-md-2
+      = link_to "+ Adicionar Autor", new_author_path, class: 'pull-right btn btn-success btn-sm filter-button'
+.row
+  .col-md-12
+    %table.table.table-bordered.table-striped.table-hover
+      %thead
+        %tr
+          %th Nome
+          %th Criado
+          %th Ações
+      %tbody
+        - @authors.each do |author|
+          %tr
+            %td
+              %b= author.name
+            %td= author.created_at.strftime("%d/%m/%Y") if author.created_at.present?
+            %td.col-md-2
+              = link_to "", author_path(author), class: 'btn btn-success btn-xs glyphicon glyphicon-share'
+              = link_to "", edit_author_path(author), class: 'btn btn-primary btn-xs glyphicon glyphicon-pencil'
+              = link_to "", author_path(author), method: :delete, class: 'btn btn-danger btn-xs glyphicon glyphicon-remove', data: { confirm: 'Tem certeza que deseja excluir?'}
+
+.row
+  .col-md-12{style: 'text-align: center'}
+    = will_paginate @authors, renderer: BootstrapPagination::Rails

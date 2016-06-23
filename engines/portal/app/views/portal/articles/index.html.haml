@@ -1,17 +1,17 @@
 .row
   .col-md-12
-    %b Total de artigos migrados:
+    %b Total de artigos migradoss:
     #{@articles.count}
 %hr/
 .row
   .col-md-12
     %table.table.table-striped.table-bordered
       %thead
-        %tr 
+        %tr
           %th Titulo
           %th Autor
           %th Data
-      %tbody 
+      %tbody
         - @articles.each do |article|
           %tr
             %td

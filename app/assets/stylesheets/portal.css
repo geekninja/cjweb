@@ -13,3 +13,6 @@
  *= require portal/stylesheets/bootstrap.min
  *= require portal/stylesheets/override
  */
+.no-padding{
+  padding: 0px!important;
+}
