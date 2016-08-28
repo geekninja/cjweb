@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160617182430) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "field"
+    t.string   "avatar"
   end
 
   create_table "migrate_articles", force: :cascade do |t|
