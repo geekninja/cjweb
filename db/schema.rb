@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829124840) do
+ActiveRecord::Schema.define(version: 20160829170543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,5 +78,39 @@ ActiveRecord::Schema.define(version: 20160829124840) do
     t.datetime "updated_at", null: false
     t.integer  "author_id"
   end
+
+  create_table "question_categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "status",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "question_options", force: :cascade do |t|
+    t.integer  "question_id"
+    t.text     "description"
+    t.boolean  "correct",     default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "question_options", ["question_id"], name: "index_question_options_on_question_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "question_category_id"
+    t.text     "description"
+    t.text     "observation"
+    t.text     "origin"
+    t.string   "code"
+    t.integer  "difficulty",           default: 0
+    t.integer  "context",              default: 0
+    t.boolean  "publish",              default: true
+    t.text     "tags",                 default: [],                array: true
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "questions", ["question_category_id"], name: "index_questions_on_question_category_id", using: :btree
 
 end

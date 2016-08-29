@@ -1,0 +1,31 @@
+.row
+  .col-md-12
+    %h3.title Categorias de Questões
+%hr/
+.row
+  .col-md-12
+    = link_to "+ Adicionar categoria", new_question_category_path, class: 'btn btn-success btn-sm'
+%br/
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered
+      %thead 
+        %tr 
+          %th Cod.
+          %th Nome
+          %th Ativa?
+          %th Ação
+      %tbody
+        - @question_categories.each do |item|
+          %tr 
+            %td.col-md-1= item.id
+            %td= item.name
+            %td.col-md-1= item.status ? "Sim" : "Não"
+            %td.col-md-1
+              .btn-group
+                %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  %i.glyphicon.glyphicon-cog
+                  %span.caret
+                %ul.dropdown-menu
+                  %li= link_to "editar", edit_question_category_path(item)
+                  %li= link_to "excluir", question_category_path(item), method: :delete, data: { confirm: t(:confirm)}

@@ -1,0 +1,30 @@
+pt-BR:
+  activerecord:
+    models:
+      question: "Questão"
+      question_option: "Opção"
+      question_category: "Categoria"
+    attributes:
+      question:
+        question_category: "Categoria"
+        code: "Código"
+        difficulty: "Dificuldade"
+        publish: "Publicado?"
+        context: "Contexto"
+        origin: "Detalhe da questão"
+        description: "Enunciado"
+        observation: "Observação"
+        tags: "Assuntos (sepados por ;)"
+      question_category:
+        question_category: "Categoria"
+        code: "Código"
+        difficulty: "Dificuldade"
+        publish: "Publicado?"
+        context: "Contexto"
+        origin: "Detalhe da questão"
+        description: "Enunciado"
+        observation: "Observação"
+        tags: "Assuntos (sepados por ;)"
+      question_option:
+        description: "Descrição"
+        correct: "Correta?"

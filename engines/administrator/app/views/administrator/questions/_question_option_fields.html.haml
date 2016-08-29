@@ -1,0 +1,11 @@
+%fieldset
+  .row
+    .col-md-12
+      = f.input :description, input_html: { placeholder: "Descrevar a opção aqui..."}
+  .row
+    .col-md-2
+      = f.input :correct, as: :select, include_blank: false
+    .col-md-2
+      = f.hidden_field :_destroy
+      = link_to "remover", '#', class: "remove_fields btn btn-danger filter-button btn-sm"
+%hr/

@@ -1,7 +1,6 @@
 .row
   .col-md-12
-    %h1
-      %B Listagem de Autores
+    %h3.title Listagem de Autores
 %hr/
 
 .row
@@ -10,7 +9,7 @@
       = f.input :by_author, label: "Autor", include_blank: 'todos...', selected: params[:by_author], input_html: { name: 'by_author'}
     .col-md-2
       = f.submit "Pesquisar", name: nil, class: 'btn btn-primary filter-button btn-sm'
-    .col-md-2
+    .col-md-6
       = link_to "+ Adicionar Autor", new_author_path, class: 'pull-right btn btn-success btn-sm filter-button'
 .row
   .col-md-12

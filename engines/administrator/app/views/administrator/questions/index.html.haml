@@ -1,0 +1,37 @@
+.row
+  .col-md-12
+    %h3.title Questões Jurídicas
+%hr/
+.row
+  .col-md-12
+    = link_to "+ Adicionar questão", new_question_path, class: 'btn btn-success btn-sm'
+%br/
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered
+      %thead 
+        %tr 
+          %th Cod.
+          %th Categoria
+          %th Dificuldade
+          %th Data de criação
+          %th Ação
+      %tbody
+        - @questions.each do |item|
+          %tr 
+            %td= item.code
+            %td= item.question_category.name if item.question_category.present?
+            %td= item.difficulty
+            %td= item.created_at.strftime('%d/%m/%Y')
+            %td.col-md-1
+              .btn-group
+                %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  %i.glyphicon.glyphicon-cog
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to "editar", edit_question_path(item)
+                  %li
+                    = link_to "visualizar", question_path(item)
+                  %li
+                    = link_to "excluir", question_path(item), method: :delete, data: { confirm: t(:confirm)}

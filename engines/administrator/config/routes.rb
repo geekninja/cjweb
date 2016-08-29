@@ -6,6 +6,8 @@ Administrator::Engine.routes.draw do
   resources :questions,   path: 'questoes'
   resources :users,       path: 'usuarios'
 
+  resources :question_categories, path: 'questao_categorias'
+
   resources :juridical_reports, path: 'boletim-juridico' do 
     resources :juridical_report_articles, path: 'boletim-artigos'
   end

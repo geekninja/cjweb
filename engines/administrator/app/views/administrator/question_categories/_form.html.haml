@@ -1,0 +1,11 @@
+= simple_form_for @question_category do |f|
+  .row
+    .col-md-10
+      = f.input :name, placeholder: "Digite o nome da categoria"
+    .col-md-2
+      = f.input :status, as: :select, include_blank: false
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to t(:back_button), question_categories_path, class: 'btn btn-default'

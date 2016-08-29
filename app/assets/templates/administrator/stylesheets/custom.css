@@ -2,6 +2,10 @@ body {
   background-color: #ececec !important;
 }
 
+.correct {
+  background-color: #e5ffe4;
+  color: black !important;
+}
 .title {
   font-weight: bold;
 }

@@ -1,12 +1,13 @@
 correções:
-  ☐ correção de tabela com nome errado
+  ✔ correção de tabela com nome errado @done (16-08-29 12:04)
   ☐ editor de texto versão antiga
 
 boletim_jurídico:
-  ☐ modelagem
-  ☐ crud de boletim
-  ☐ funcionalidade de inserir artigos no boletim
-  ☐ publicar boletim
+  ✔ modelagem @done (16-08-29 12:04)
+  ✔ crud de boletim @done (16-08-29 12:04)
+  ✔ funcionalidade de inserir artigos no boletim @done (16-08-29 12:04)
+  ☐ publicar boletim no portal
+  ☐ listagem de boletings
 
  questions:
   ☐ modelagem de questões

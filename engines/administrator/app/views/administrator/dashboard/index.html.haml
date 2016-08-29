@@ -1,0 +1,37 @@
+.row
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title Quantidade de artigos
+      .panel-body
+        %h1.title
+          = Article.count
+          %br/
+          %small cadastrado(s)
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title Quantidade de autores
+      .panel-body
+        %h1.title
+          = Author.count
+          %br/
+          %small cadastrado(s)
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title Quantidade de questões
+      .panel-body
+        %h1.title
+          = Question.count
+          %br/
+          %small cadastrada(s)
+  .col-md-3
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title Quantidade de acessos (mês)
+      .panel-body
+        %h1.title
+          0
+          %br/
+          %small único(s)

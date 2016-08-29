@@ -1,0 +1,43 @@
+= simple_form_for @question do |f|
+  .row
+    .col-md-4
+      = f.association :question_category, include_blank: "selecione..."
+      = f.hint link_to "gerenciar categorias", question_categories_path
+    .col-md-2
+      = f.input :code, input_html: { placeholder: "Ex.: 000001"}  
+    .col-md-2
+      = f.input :difficulty, as: :select, collection: Question.difficulties.keys, include_blank: false
+    .col-md-2
+      = f.input :publish, as: :select, include_blank: false
+    .col-md-2
+      = f.input :context, as: :select, collection: Question.contexts.keys.map { |key| [key.humanize, key]}, include_blank: false
+  %hr/
+  .row
+    .col-md-12
+      = f.input :origin, input_html: { placeholder: "Descreva o título da sua questão aqui..."}  
+  .row
+    .col-md-12  
+      = f.input :description, input_html: { placeholder: "Descreva o enunciado da sua questão aqui..."}
+  .row
+    .col-md-12  
+      = f.input :observation, input_html: { placeholder: "Descreva o observações da sua questão aqui..."}
+  .row
+    .col-md-10
+      = f.input :tags, input_html: { value: f.object.tags.present? ? f.object.tags : '', placeholder: "Ex.: tag1;tag2;tag3"}
+      
+
+  %hr/
+  .row
+    .col-md-12
+      %h4.title Opções/Resposta
+  .row
+    .col-md-12
+      = f.simple_fields_for :question_options do |builder|
+        = render 'question_option_fields', f: builder
+      = link_to_add_fields "+ adicionar opção", f, :question_options 
+  
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to t(:back_button), questions_path, class: 'btn btn-default'

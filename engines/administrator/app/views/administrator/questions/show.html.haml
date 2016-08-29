@@ -1,0 +1,29 @@
+.row{style: 'text-align: justify !important'}
+  .col-md-10
+    .row
+      .col-md-12
+        %h3.title Visualizar Questão
+        = link_to "Voltar para listagem", questions_path
+    %hr/
+    .row
+      .col-md-12  
+        %h4.title Questão  
+        %h5
+          %i= @question.description
+    .row
+      .col-md-12
+        %h4.title Resposta  
+    %br/
+    .row
+      .col-md-12
+        - @question.question_options.each do |item|
+          .row{class: item.correct ? "correct" : ''}
+            .col-md-1
+              %br/
+              - if @question.escolha_única?
+                = radio_button_tag "question[]", value: item.id
+              - else          
+                = check_box_tag "question[]", value: item.id
+            .col-md-11
+              %h5= item.description
+          %hr/
