@@ -17,8 +17,8 @@
           - @juridical_report.articles.order(:id).each do |item|
             %tr
               %td.col-md-1= item.created_at.strftime("%d/%m/%Y")
-              %td= link_to item.article.title, juridical_report_path(item)
-              %td= link_to item.article.author.name, juridical_report_path(item)
+              %td= link_to item.article.title, article_path(item.article)
+              %td= link_to item.article.author.name, author_path(item.article.author)
         - else
           %tr 
             %td{colspan: 3}

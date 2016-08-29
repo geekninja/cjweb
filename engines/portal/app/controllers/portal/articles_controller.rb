@@ -4,6 +4,7 @@ module Portal
   class ArticlesController < ApplicationController
 
     has_scope :by_author
+    has_scope :by_title
 
     def index
       @articles = apply_scopes(Article).all.paginate(:page => params[:page], :per_page => 20)

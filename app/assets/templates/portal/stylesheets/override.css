@@ -4,6 +4,10 @@ body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
+.filter-button {
+  margin-top: 28px !important;
+}
+
 .navbar{
   margin-bottom: 0px!important;
 }
