@@ -1,0 +1,27 @@
+.row
+  .col-md-12
+    %h3
+      %b Boletim Jurídico - #{@juridical_report.code} - #{@juridical_report.date.strftime('%d/%m/%Y')} 
+    = link_to "voltar para listagem", juridical_reports_path 
+%hr/
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Cod.
+          %th Artigo
+          %th Autor
+      %tbody
+        - if @juridical_report.articles.present?
+          - @juridical_report.articles.order(:id).each do |item|
+            %tr
+              %td.col-md-1= item.date.strftime("%d/%m/%Y")
+              %td= link_to item.name, juridical_report_path(item)
+        - else
+          %tr 
+            %td{colspan: 3}
+              %i Não existem artigos vínculados a este boletim
+
+.row
+  .col-md-12

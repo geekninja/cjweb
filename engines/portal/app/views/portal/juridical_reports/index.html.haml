@@ -1,0 +1,25 @@
+.row
+  .col-md-12
+    %h2
+      %b Boletim Jurídico
+%hr/
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Data
+          %th Descrição
+          %th{colspan: 3} Exportar
+      %tbody
+        - @juridical_reports.order('date DESC').each do |item|
+          %tr
+            %td.col-md-1= item.date.strftime("%d/%m/%Y")
+            %td= link_to item.name, juridical_report_path(item)
+            %td.col-md-1= link_to "pdf", "#"
+            %td.col-md-1= link_to "html", juridical_report_path(item)
+
+.row
+  .col-md-12
+    = will_paginate @juridical_reports, renderer: BootstrapPagination::Rails
+
