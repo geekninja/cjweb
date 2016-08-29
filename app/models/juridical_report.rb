@@ -1,5 +1,5 @@
 class JuridicalReport < ActiveRecord::Base
-  has_many :articles, class_name: "JuridicalReportArticle"
+  has_many :articles, class_name: "JuridicalReportArticle", dependent: :destroy
 
   enum situation: ['rascunho', 'revisão', 'pronto']
 

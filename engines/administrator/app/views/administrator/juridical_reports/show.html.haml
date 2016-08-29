@@ -23,7 +23,8 @@
     %table.table.table-striped.table-bordered
       %thead 
         %tr 
-          %th #
+          %th Item
+          %th Cod.
           %th Título
           %th Author
           %th Ações
@@ -31,6 +32,7 @@
         - @juridical_report.articles.order('created_at DESC').each_with_index do |item, index|
           %tr 
             %td.col-md-1= index + 1
+            %td.col-md-1= item.article.code  if item.article.present?
             %td.col-md-5= item.article.title if item.article.present?
-            %td.col-md-5= item.article.author.name if item.article.present? && item.article.author.present?
+            %td.col-md-3= item.article.author.name if item.article.present? && item.article.author.present?
             %td.col-md-1= link_to "", juridical_report_juridical_report_article_path(juridical_report_id: @juridical_report.id, id: item), method: :delete, data: { confirm: t(:confirm)}, class: 'btn btn-danger btn-xs glyphicon glyphicon-remove'
