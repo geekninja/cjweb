@@ -7,7 +7,7 @@
   .col-md-12.article-home.no-padding
     - @authors.each do |author|
       .col-md-2
-        - if !author.avatar.nil?
+        - if !author.avatar.nil? || author.avatar.to_s != "NULL"
           = link_to image_tag("/images/authors/#{author.avatar}",:title=> "#{author.name}",:alt=>"#{author.name}", :class=> "img-thumbnail", :style=>"width:100%;height: 204px;"), "/artigos?by_author=#{author.id}"
         - else
           = link_to image_tag("/images/avatar.jpg",:title=> "#{author.name}",:alt=>"#{author.name}", :class=> "img-thumbnail", :style=>"width:100%;height: 204px;"), "/artigos?by_author=#{author.id}"
