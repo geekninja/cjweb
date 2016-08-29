@@ -5,4 +5,8 @@ class Article < ActiveRecord::Base
   scope :by_title,   -> (title)      { where("title ILIKE '%#{title}%'")}
 
   validates :title, :content, :author, presence: true
+
+  def code 
+    "#{'%06d' % id}"
+  end
 end

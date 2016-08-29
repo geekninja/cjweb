@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    %h2.title Boletim Jurídico - Artigos 
+    %h4
+      %i= "#{@juridical_report.id} - #{@juridical_report.name}"
+%hr/
+.row
+  .col-md-12
+%br/
+.row
+  .col-md-12
+    = simple_form_for [@juridical_report, @juridical_report_article] do |f|
+      .row
+        .col-md-2
+          = f.input :article_id, label: "Código do artigo", as: :string, placeholder: "Ex.:000001"
+        .col-md-2
+          = f.submit '+ Adicionar artigo', class: 'btn btn-success btn-sm filter-button'
+        .col-md-8
+          = link_to "voltar para listagem", juridical_reports_path, class: 'btn btn-primary btn-sm filter-button pull-right'
+
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered
+      %thead 
+        %tr 
+          %th #
+          %th Título
+          %th Author
+          %th Ações
+      %tbody
+        - @juridical_report.articles.order('created_at DESC').each_with_index do |item, index|
+          %tr 
+            %td.col-md-1= index + 1
+            %td.col-md-5= item.article.title if item.article.present?
+            %td.col-md-5= item.article.author.name if item.article.present? && item.article.author.present?
+            %td.col-md-1= link_to "", juridical_report_juridical_report_article_path(juridical_report_id: @juridical_report.id, id: item), method: :delete, data: { confirm: t(:confirm)}, class: 'btn btn-danger btn-xs glyphicon glyphicon-remove'

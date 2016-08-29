@@ -19,6 +19,7 @@
     %table.table.table-bordered.table-striped.table-hover
       %thead
         %tr
+          %th Cod.
           %th Título
           %th Autor
           %th Data
@@ -26,6 +27,7 @@
       %tbody
         - @articles.each do |article|
           %tr
+            %td= article.code
             %td
               %b= article.title
             %td= article.author.name if article.author.present?

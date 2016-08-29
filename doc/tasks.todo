@@ -1,0 +1,19 @@
+correções:
+  ☐ correção de tabela com nome errado
+  ☐ editor de texto versão antiga
+
+boletim_jurídico:
+  ☐ modelagem
+  ☐ crud de boletim
+  ☐ funcionalidade de inserir artigos no boletim
+  ☐ publicar boletim
+
+ questions:
+  ☐ modelagem de questões
+  ☐ crud de questão
+  ☐ crud de alternativas de questão
+  ☐ publicação de questão
+  ☐ controller de utilização de questão
+  ☐ crud de simulado de questão
+
+

@@ -1,6 +1,6 @@
-class CreateArticleCategorries < ActiveRecord::Migration
+class CreateArticleCategories < ActiveRecord::Migration
   def change
-    create_table :article_categorries do |t|
+    create_table :article_categories do |t|
       t.string  :name 
       t.string  :description
       t.boolean :status, default: true

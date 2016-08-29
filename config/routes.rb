@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
   mount Portal::Engine        => '/'
-  mount Administrator::Engine => '/ad'
+  mount Administrator::Engine => '/gestao'
   
 end

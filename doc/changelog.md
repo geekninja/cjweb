@@ -1,0 +1,1 @@
+- - rake db:migrate:down VERSION=20160615171804 => update table name *categorries*

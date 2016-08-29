@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      juridical_report: "Boletim Jurídico"
+    attributes:
+      juridical_report:
+        name: "Nome"
+        description: "Descrição"
+        code: "Código"
+        publish: "Publicado?"
+        situation: "Situação"
+        date: "Data"

@@ -1,0 +1,21 @@
+= simple_form_for @juridical_report do |f|
+  .row
+    .col-md-7
+      = f.input :name, input_html: { placeholder: "Digite o nome do boletim jurídico"}
+    .col-md-2
+      = f.input :date, as: :string, input_html: { class: 'date' , value: f.object.date.present? ? localize(f.object.date) : nil}
+    .col-md-3
+      = f.input :code, input_html: { placeholder: "Código do boletim"}
+  .row
+    .col-md-12
+      = f.input :description, input_html: { placeholder: "Digite uma descrição do boletim jurídico"}
+  .row
+    .col-md-3
+      = f.input :situation, as: :select, collection: JuridicalReport.situations.keys, include_blank: false
+    .col-md-3
+      = f.input :publish, as: :select, include_blank: false
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to t(:back_button), juridical_reports_path, class: 'btn btn-default'

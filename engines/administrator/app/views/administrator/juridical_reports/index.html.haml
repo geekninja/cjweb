@@ -1,0 +1,41 @@
+.row
+  .col-md-12
+    %h3.title Boletim Jurídico
+%hr/
+.row
+  .col-md-12
+    = link_to "+ Adicionar boletim jurídico", new_juridical_report_path, class: 'btn btn-success btn-sm'
+%br/
+.row
+  .col-md-12
+    %table.table.table-striped.table-bordered.table-condensed
+      %thead
+        %tr 
+          %th Cod.
+          %th Nome
+          %th Data
+          %th Situação
+          %th Publicado?
+          %th Qtd. Artigos
+          %th Ações
+      %tbody
+        - @juridical_reports.each do |item|
+          %tr
+            %td.col-md-1= item.code
+            %td= item.name
+            %td.col-md-1= item.date.strftime("%d/%m/%Y")
+            %td.col-md-1= item.situation  
+            %td.col-md-1= item.publish ? "sim" : "não"
+            %td.col-md-1= item.articles.count
+            %td.col-md-1
+              .btn-group
+                %button.btn.btn-primary.btn-xs.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  %i.glyphicon.glyphicon-cog
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    = link_to "editar", edit_juridical_report_path(item)
+                  %li
+                    = link_to "visualizar", juridical_report_path(item)
+                  %li
+                    = link_to "excluir", juridical_report_path(item), method: :delete, data: { confirm: t(:confirm)}

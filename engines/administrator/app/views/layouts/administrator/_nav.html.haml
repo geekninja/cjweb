@@ -7,7 +7,8 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#{administrator.root_path}"} Administração
+      %a.navbar-brand{:href => "#{administrator.root_path}"} 
+        %b Administração
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
@@ -17,12 +18,42 @@
             %span.caret
           %ul.dropdown-menu
             %li
-              %a{:href => "#{articles_path}"} Artigos
+              %a{:href => "#{new_article_path}"} Adicionar
             %li
-              %a{:href => "#{new_article_path}"} Novo artigo
+              %a{:href => "#{articles_path}"} Listagem
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#"} Categorias de conteúdo
+              %a{:href => "#"} Categorias
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Autores
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#{new_author_path}"} Adicionar
+            %li
+              %a{:href => "#{authors_path}"} Listagem
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Boletim Jurídico
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#{administrator.new_juridical_report_path}"} Adicionar
+            %li
+              %a{:href => "#{administrator.juridical_reports_path}"} Listagem
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Questões
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#{administrator.new_juridical_report_path}"} Adicionar
+            %li
+              %a{:href => "#{administrator.juridical_reports_path}"} Listagem 
+            %li.divider{:role => "separator"}
+            %li
+              %a{:href => "#{administrator.juridical_reports_path}"} Categorias              
 
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown

@@ -1,0 +1,6 @@
+pt-BR:
+  success: "Operação realizada com sucesso"
+  danger: "Não foi possível realizar esta operação"
+  back_button: "Voltar para listagem"
+  confirm: "Tem certeza que deseja realizar esta ação?"
+  disable_with: "Aguarde..."

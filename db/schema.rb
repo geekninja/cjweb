@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617182430) do
+ActiveRecord::Schema.define(version: 20160829124840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "article_categorries", force: :cascade do |t|
+  create_table "article_categories", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.boolean  "status",      default: true
@@ -30,9 +30,10 @@ ActiveRecord::Schema.define(version: 20160617182430) do
     t.integer  "author_id"
     t.integer  "old_id"
     t.string   "old_link"
-    t.boolean  "publish",    default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "publish",     default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "category_id"
   end
 
   add_index "articles", ["author_id"], name: "index_articles_on_author_id", using: :btree
@@ -42,6 +43,29 @@ ActiveRecord::Schema.define(version: 20160617182430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "avatar"
+  end
+
+  create_table "juridical_report_articles", force: :cascade do |t|
+    t.integer  "juridical_report_id"
+    t.integer  "article_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "juridical_report_articles", ["article_id"], name: "index_juridical_report_articles_on_article_id", using: :btree
+  add_index "juridical_report_articles", ["juridical_report_id"], name: "index_juridical_report_articles_on_juridical_report_id", using: :btree
+
+  create_table "juridical_reports", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "date"
+    t.string   "code"
+    t.integer  "situation",   default: 0
+    t.boolean  "publish",     default: false
+    t.boolean  "special",     default: false
+    t.string   "file_path"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "migrate_articles", force: :cascade do |t|
