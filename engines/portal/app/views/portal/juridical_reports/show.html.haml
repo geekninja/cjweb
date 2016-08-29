@@ -16,8 +16,9 @@
         - if @juridical_report.articles.present?
           - @juridical_report.articles.order(:id).each do |item|
             %tr
-              %td.col-md-1= item.date.strftime("%d/%m/%Y")
-              %td= link_to item.name, juridical_report_path(item)
+              %td.col-md-1= item.created_at.strftime("%d/%m/%Y")
+              %td= link_to item.article.title, juridical_report_path(item)
+              %td= link_to item.article.author.name, juridical_report_path(item)
         - else
           %tr 
             %td{colspan: 3}

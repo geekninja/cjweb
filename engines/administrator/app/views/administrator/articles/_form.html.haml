@@ -6,7 +6,7 @@
       = f.association :author, include_blank: false
   .row
     .col-md-12
-      = f.input :content, input_html: { style: 'min-height: 500px', class: 'tinymce'}
+      = f.input :content, input_html: { style: 'min-height: 500px', id: 'textarea'}
   .row
     .col-md-3
       = f.input :publish, as: :select, include_blank: false
