@@ -9,7 +9,7 @@ module Administrator
     end
 
     def new
-      @question  = Question.new 
+      @question  = Question.new
     end
 
     def create
@@ -38,20 +38,19 @@ module Administrator
     end
 
     def destroy
-      if @question.destroy 
+      if @question.destroy
         flash[:success] = t :success
       else
         flash[:danger]  = t :danger
       end
-
       redirect_to action: :index
     end
 
     private
 
     def set_params
-      params.require(:question).permit(:description, :observation, :code, :question_category_id, 
-                                       :difficulty, :publish, :context, :origin, :tags, 
+      params.require(:question).permit(:description, :observation, :code, :question_category_id,
+                                       :difficulty, :publish, :context, :origin, :tags,
                                        question_options_attributes: [:description, :correct, :id, :_destroy])
     end
 

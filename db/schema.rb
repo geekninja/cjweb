@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829170543) do
+ActiveRecord::Schema.define(version: 20160916175534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "article_categories", force: :cascade do |t|
+  create_table "article_categorries", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.boolean  "status",      default: true
@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(version: 20160829170543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "avatar"
+    t.text     "bio"
+    t.integer  "user_type"
+    t.string   "email"
   end
 
   create_table "juridical_report_articles", force: :cascade do |t|

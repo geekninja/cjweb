@@ -1,16 +1,25 @@
 = simple_form_for @author do |f|
   .row
-    .col-md-8
+    .col-md-12
       = f.input :name
+  .row
+    .col-md-4
+      = f.input :email
+    .col-md-4
+      = f.input :user_type, as: :select, collection: Author.user_types.keys, include_blank: false
+  .row
+    .col-md-12
+      = f.input :bio, input_html: { style: 'min-height: 500px', id: 'textarea'}
   .row
     .col-md-2
       = f.input :avatar, as: :file
       = link_to "visualizar arquivo atual", f.object.avatar.url, target: '_blank' if !f.object.avatar.to_s.empty?
+
   %hr/
   .row
     .col-md-12
       = f.button :submit, class: 'btn btn-success'
-      = link_to "Voltar para listagem", authors_path, class: 'btn btn-default' 
+      = link_to "Voltar para listagem", authors_path, class: 'btn btn-default'
 
 %br/
 %br/
