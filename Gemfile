@@ -6,7 +6,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 gem 'nokogiri'
-
+gem 'shareable'
 gem 'pg'
 
 gem 'haml-rails'

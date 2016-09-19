@@ -1,6 +1,6 @@
 = link_to "voltar", articles_path
 .row
-  .col-md-9
+  .col-md-12
     .content-title
       Categoria do artigo
       %h1
@@ -19,9 +19,9 @@
               %i= @article.author.name if @article.author.present?
         .col-md-4{style: 'text-align: center !important'}
           %b anúncie aqui
-        %div{style:'padding-top:10px'}
-
     %hr/
+    .col-md-12
+      = render_shareable
     .content-text
       = html_escape_once(@article.content).gsub("\n", "\r\n<br/>").html_safe
     .content-recommendation

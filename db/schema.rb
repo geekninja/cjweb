@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20160916175534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "article_categorries", force: :cascade do |t|
+  create_table "article_categories", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.boolean  "status",      default: true
