@@ -1,0 +1,22 @@
+= simple_form_for @article_category do |f|
+  .row
+    .col-md-8
+      = f.input :name
+  .row
+    .col-md-12
+      = f.input :description
+  .row
+    .col-md-3
+      = f.input :status, as: :select, include_blank: false
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "Voltar para listagem", article_categories_path, class: 'btn btn-default'
+
+%br/
+%br/
+%br/
+%br/
+%br/
+%br/

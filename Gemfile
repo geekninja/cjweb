@@ -19,16 +19,15 @@ gem 'tinymce-rails-langs'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 gem 'file_validators'
 gem 'carrierwave'
+
+path 'engines' do
+  gem 'administrator'
+  gem 'portal'
+end
 group :development, :test do
   gem 'byebug'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
-end
-
-
-path 'engines' do
-  gem 'administrator'
-  gem 'portal'
 end
