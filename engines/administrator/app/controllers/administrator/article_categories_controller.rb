@@ -2,6 +2,7 @@ require_dependency 'administrator/application_controller'
 
 module Administrator
   class ArticleCategoriesController < ApplicationController
+    before_action :set_article_categories, only: [:edit, :update, :destroy]
 
     def index
       @article_categories = ArticleCategory.all
@@ -47,10 +48,10 @@ module Administrator
     private
 
     def set_params
-      params.require(:article).permit(:title, :content, :publish, :author_id)
+      params.require(:article_category).permit(:name,:description,:status, :author_id)
     end
 
-    def set_article
+    def set_article_categories
       @article_category = ::ArticleCategory.find(params[:id])
     end
   end

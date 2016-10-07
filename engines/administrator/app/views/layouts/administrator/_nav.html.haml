@@ -7,7 +7,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#{administrator.root_path}"} 
+      %a.navbar-brand{:href => "#{administrator.root_path}"}
         %b Administração
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
@@ -23,7 +23,7 @@
               %a{:href => "#{articles_path}"} Listagem
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#"} Categorias
+              %a{:href => "#{article_categories_path}"} Categorias
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Autores
@@ -50,10 +50,10 @@
             %li
               %a{:href => "#{administrator.new_question_path}"} Adicionar
             %li
-              %a{:href => "#{administrator.questions_path}"} Listagem 
+              %a{:href => "#{administrator.questions_path}"} Listagem
             %li.divider{:role => "separator"}
             %li
-              %a{:href => "#{administrator.question_categories_path}"} Categorias              
+              %a{:href => "#{administrator.question_categories_path}"} Categorias
 
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
