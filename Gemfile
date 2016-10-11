@@ -19,6 +19,7 @@ gem 'tinymce-rails-langs'
 gem 'tinymce-rails-imageupload', '~> 4.0.0.beta'
 gem 'file_validators'
 gem 'carrierwave'
+gem 'chosen-rails'
 
 path 'engines' do
   gem 'administrator'

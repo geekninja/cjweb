@@ -1,6 +1,5 @@
 class Article < ActiveRecord::Base
   belongs_to :author, -> {order(:name)}
-  belongs_to :article_category
 
   default_scope { order('created_at DESC')}
 
@@ -9,6 +8,10 @@ class Article < ActiveRecord::Base
 
   validates :title, :content, :author, presence: true
 
+  def categories_id
+    ::ArticleCategory.where(id: self.category_ids)
+  end
+  
   def code
     "#{'%06d' % id}"
   end

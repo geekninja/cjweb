@@ -51,7 +51,7 @@ module Administrator
     private
 
     def set_params
-      params.require(:article).permit(:title, :content, :publish, :author_id)
+      params.require(:article).permit(:title, :content, :publish, :author_id, category_ids: [])
     end
 
     def set_article

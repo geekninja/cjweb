@@ -1,9 +1,13 @@
 = simple_form_for @article do |f|
   .row
-    .col-md-8
+    .col-md-6
       = f.input :title
-    .col-md-4
-      = f.association :author, include_blank: false
+    .col-md-3{style: 'padding-top: 6px !important'}
+      = f.label :author
+      = f.association :author, label: false, include_blank: false, input_html: { class: 'chosen-select'}
+    .col-md-3{style: 'padding-top: 6px !important'}
+      = f.input :category_ids, label: "Categorias", as: :select, collection: ::ArticleCategory.all.order(:name), selected: f.object.category_ids, input_html: {class: 'chosen-select', multiple: true}
+    
   .row
     .col-md-12
       = f.input :content, input_html: { style: 'min-height: 500px', id: 'textarea'}
@@ -16,8 +20,6 @@
       = f.button :submit, class: 'btn btn-success'
       = link_to "Voltar para listagem", articles_path, class: 'btn btn-default' 
 
-%br/
-%br/
 %br/
 %br/
 %br/
