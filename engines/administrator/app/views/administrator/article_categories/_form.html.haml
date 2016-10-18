@@ -1,7 +1,9 @@
 = simple_form_for @article_category do |f|
   .row
     .col-md-8
-      = f.input :name
+      = f.input :name, input_html: { placeholder: "Digite o nome da categoria"}
+    .col-md-4
+      = f.input :father_id, label: "Categoria Pai", as: :select, collection: ArticleCategory.all, include_blank: "sem categoria"
   .row
     .col-md-12
       = f.input :description

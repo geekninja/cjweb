@@ -6,7 +6,7 @@
       = f.label :author
       = f.association :author, label: false, include_blank: false, input_html: { class: 'chosen-select'}
     .col-md-3{style: 'padding-top: 6px !important'}
-      = f.input :category_ids, label: "Categorias", as: :select, collection: ::ArticleCategory.all.order(:name), selected: f.object.category_ids, input_html: {class: 'chosen-select', multiple: true}
+      = f.input :category_ids, label: "Categorias", as: :select, collection: ::ArticleCategory.all.order(:name), label_method: :complete_name, selected: f.object.category_ids, input_html: {class: 'chosen-select', multiple: true}
     
   .row
     .col-md-12

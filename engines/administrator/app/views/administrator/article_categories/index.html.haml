@@ -1,27 +1,38 @@
 .row
   .col-md-12
-    %h3.title Listagem de artigos
+    %h3.title Listagem de categorias de artigos
 %hr/
-
 .row
   .col-md-12
-    = link_to "+ Adicionar categoria", new_article_category_path, class: 'pull-right btn btn-success btn-sm filter-button'
-    %br/
+    = simple_form_for @article_category  do |f|
+      .row
+        .col-md-6
+          = f.input :name, label: "Nome"
+        .col-md-2{style: 'padding-top: 6px !important'}
+          = f.label "Categoria Pai"
+          %br/
+          = f.input :father_id, label: false, as: :select, collection: ArticleCategory.all, label_method: :complete_name, include_blank: "sem categoria", input_html: { class: 'chosen-select'}
+        .col-md-2{style: 'padding-top: 6px !important'}
+          = f.input :status, label: "Publicada?", as: :select, include_blank: false, input_html: { class: 'chosen-select'}
+        .col-md-2
+          = f.submit "+ Adicionar Categoria", class: 'btn btn-success filter-button btn-sm'
 .row
   .col-md-12
     %table.table.table-bordered.table-striped.table-hover
       %thead
         %tr
+          %th Cod.
           %th Nome
+          %th Categoria Pai
           %th Data
           %th Ações
       %tbody
-        - @article_categories.each do |article_category|
+        - @article_categories.order(:name).each do |article_category|
           %tr
-            %td
-              %b= article_category.name
-            %td= article_category.created_at.strftime("%d/%m/%Y") if article_category.created_at.present?
-            %td.col-md-2
-              = link_to "", article_category_path(article_category), class: 'btn btn-success btn-xs glyphicon glyphicon-share'
+            %td.col-md-1= article_category.id
+            %td= article_category.complete_name
+            %td.col-md-4= article_category.father.name rescue "Sem categoria pai"
+            %td.col-md-1= article_category.created_at.strftime("%d/%m/%Y") if article_category.created_at.present?
+            %td.col-md-1
               = link_to "", edit_article_category_path(article_category), class: 'btn btn-primary btn-xs glyphicon glyphicon-pencil'
               = link_to "", article_category_path(article_category), method: :delete, class: 'btn btn-danger btn-xs glyphicon glyphicon-remove', data: { confirm: 'Tem certeza que deseja excluir?'}

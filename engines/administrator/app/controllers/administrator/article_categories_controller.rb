@@ -6,6 +6,7 @@ module Administrator
 
     def index
       @article_categories = ArticleCategory.all
+      @article_category = ::ArticleCategory.new
     end
 
     def new
@@ -13,13 +14,14 @@ module Administrator
     end
 
     def create
+      @article_categories = ArticleCategory.all
       @article_category = ::ArticleCategory.new(set_params)
 
       if @article_category.save
         flash[:success] = t :success
         redirect_to action: :index
       else
-        render action: :new
+        render action: :index
       end
     end
 
@@ -48,7 +50,7 @@ module Administrator
     private
 
     def set_params
-      params.require(:article_category).permit(:name,:description,:status, :author_id)
+      params.require(:article_category).permit(:name,:description,:status, :author_id, :father_id)
     end
 
     def set_article_categories
