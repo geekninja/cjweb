@@ -11,6 +11,11 @@
           = f.input :by_title, label: "Título", input_html: { placeholder: "Digite um termo para realizar a busca", name: 'by_title', value: params[:by_title]}
         .col-md-2
           = f.submit "realizar pesquisa", name: nil, class: 'btn btn-primary filter-button btn-sm'
+      .row
+        .col-md-10
+          = f.input :by_category, label: "Categorias", as: :select, collection: ::ArticleCategory.all.order(:name), input_html: {name: :by_category}, selected: params[:by_category]
+        .col-md-2
+          = f.submit "realizar pesquisa", name: nil, class: 'btn btn-primary filter-button btn-sm'
 %br/
 .row
   .col-md-12

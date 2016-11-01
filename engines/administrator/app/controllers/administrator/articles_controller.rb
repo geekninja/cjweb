@@ -3,9 +3,10 @@ require_dependency 'administrator/application_controller'
 module Administrator
   class ArticlesController < ApplicationController
     before_action :set_article, only: [:edit, :update, :destroy]
-    
+
     has_scope :by_title
     has_scope :by_author
+    has_scope :by_category
 
     def index
       @articles = apply_scopes(Article).all.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
